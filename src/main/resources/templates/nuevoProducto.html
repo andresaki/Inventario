@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+
+<body class=" mt-20  flex items-center">
+
+    <nav class="navbar bg-black">
+       <div class="container-fluid">
+          <a class="navbar-brand text-light fs-1 text fw-bold" >Productos</a>
+       </div>
+    </nav>
+
+
+
+        <main  class="container" style="margin-top: 100px;" >
+
+
+            <form class="shadow-lg p-4 mb-5  rounded-4 rounded  mx-auto" style="width: 400px " th:action="@{/GuardarProducto}" th:object="${product}"  method="post">
+
+                <h4 class="text-center mb-5 mt-4" >Registro de un producto</h4>
+
+                <div class="mb-3 " style="margin-top: 80px;" >
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" aria-describedby="nombre" required autofocus th:field="*{nombre}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="marca" aria-describedby="marca" required autofocus th:field="*{marca}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <input type="text" class="form-control" id="categoria" aria-describedby="categoria" required autofocus th:field="*{categoria}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" aria-describedby="precio" required autofocus th:field="*{precio}">
+                </div>
+
+
+                <button type="submit" class="btn btn-success " style="margin-top: 50px;">Guardar</button>
+                <a type="button"  th:href="@{/productos}" style="margin-top: 50px;"
+                   class="btn ">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </main>
+
+</body>
+
+</html>
